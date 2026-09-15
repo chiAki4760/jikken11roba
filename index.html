@@ -3,38 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>お菓子の国の甘い罠 // 永遠の遊園地簿記ドリル</title>
+  <title>おかしの家とまほうの遊園地 // 夢の簿記ドリル</title>
   <style>
     * { box-sizing: border-box; }
 
     /* ==================================================
-       ★ テーマカラー設定エリア（甘いお菓子と不穏な変異のパレット）
+       ★ テーマカラー：カラフル＆ポップで美味しそうなお菓子の国
     ================================================== */
     :root {
-      --primary: #d946ef;       /* 毒々しく鮮やかなシュガーマゼンタ */
-      --primary-hover: #c026d3; /* 深まるキャンディパープル */
-      --bg-body: #180d24;       /* 影の落ちた遊園地の夜空色 */
-      --card-bg: #2d1b3e;       /* お菓子の館の壁面（くすんだパープル） */
-      --text-main: #fce7f3;     /* アイシングシュガーのような淡い桃白 */
-      --text-muted: #c084fc;    /* 薄紫の霧（補足テキスト） */
-      --border: #701a75;        /* 煮詰めたベリージャム色の境界線 */
-      --debit-border: #f472b6;  /* 借方：甘いストロベリークリーム */
-      --credit-border: #fb923c; /* 貸方：香ばしいローストキャラメル */
-      --correct-bg: #4a044e;    /* 正解：深紅のキャンディシロップ */
-      --correct-text: #fbcfe8;  /* 正解文字：パステルピンクシュガー */
-      --wrong-bg: #3f2c1d;      /* 不正解：濁ったロバの毛並み色 */
-      --wrong-text: #fed7aa;    /* 不正解文字：警告のビスケット色 */
+      --primary: #ff5e97;       /* いちごストロベリーソース */
+      --primary-hover: #ff337a; /* 完熟ベリーピンク */
+      --bg-body: #fff7ed;       /* 焼き立てバニラクッキーの香り */
+      --card-bg: #ffffff;       /* ホイップクリームホワイト */
+      --text-main: #4a2810;     /* 濃厚ミルクチョコレート色 */
+      --text-muted: #9c6644;    /* 香ばしいビスケットブラウン */
+      --border: #ffd1dc;        /* パステルピンクのアイシングライン */
+      --debit-border: #38bdf8;  /* 借方：ラムネソーダブルー */
+      --credit-border: #fb923c; /* 貸方：オレンジドロップ */
+      --correct-bg: #fef08a;    /* 正解：あま〜いカスタードイエロー */
+      --correct-text: #854d0e;  /* 正解文字：ハニーキャラメル */
+      --wrong-bg: #fee2e2;      /* 不正解：ストロベリーシェイクの警告 */
+      --wrong-text: #991b1b;    /* 不正解文字：ルビーシロップ */
     }
 
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: "Comic Sans MS", -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+      font-family: "Comic Sans MS", "M PLUS Rounded 1c", -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
       color: var(--text-main);
       background-color: var(--bg-body);
-      background-image: radial-gradient(#3b0764 15%, transparent 16%), radial-gradient(#4a044e 15%, transparent 16%);
-      background-size: 60px 60px;
-      background-position: 0 0, 30px 30px;
+      /* ギンガムチェック風の可愛いテーブルクロス柄 */
+      background-image: 
+        repeating-linear-gradient(0deg, transparent, transparent 20px, rgba(255, 182, 193, 0.25) 20px, rgba(255, 182, 193, 0.25) 40px),
+        repeating-linear-gradient(90deg, transparent, transparent 20px, rgba(255, 228, 196, 0.35) 20px, rgba(255, 228, 196, 0.35) 40px);
       padding: 16px;
       overflow-x: hidden;
     }
@@ -43,59 +44,57 @@
       max-width: 680px;
       margin: 0 auto;
       background: var(--card-bg);
-      border: 3px solid var(--border);
-      border-radius: 20px;
-      padding: 20px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(217, 70, 239, 0.2);
+      border: 4px solid #ffccd5;
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 10px 25px rgba(255, 154, 162, 0.25), 0 0 0 6px #fff;
       position: relative;
     }
     .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-bottom: 12px;
-      border-bottom: 2px dashed var(--border);
-      margin-bottom: 14px;
+      padding-bottom: 14px;
+      border-bottom: 3px dotted #ffb3c1;
+      margin-bottom: 16px;
     }
-    .logo-area { display: flex; align-items: center; gap: 10px; }
-    .logo-icon { font-size: 2.2rem; line-height: 1; filter: drop-shadow(0 0 6px rgba(244, 114, 182, 0.6)); }
+    .logo-area { display: flex; align-items: center; gap: 12px; }
+    .logo-icon { font-size: 2.2rem; line-height: 1; }
     .logo-title { 
       margin: 0; 
-      font-size: 1.15rem; 
-      color: #f472b6; 
+      font-size: 1.2rem; 
+      color: #ff4d6d; 
       font-weight: 800;
-      text-shadow: 0 0 8px rgba(217, 70, 239, 0.5);
+      letter-spacing: 0.05em;
     }
     .status-badge {
-      background: linear-gradient(135deg, #ec4899, #8b5cf6);
-      color: #ffffff;
-      padding: 5px 12px;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      color: white;
+      padding: 5px 14px;
       border-radius: 999px;
-      font-size: 0.72rem;
+      font-size: 0.75rem;
       font-weight: bold;
-      border: 1px solid #fbcfe8;
-      box-shadow: 0 0 10px rgba(236, 72, 153, 0.4);
+      box-shadow: 0 3px 8px rgba(255, 117, 140, 0.3);
     }
     .status-badge.review { 
-      background: linear-gradient(135deg, #f97316, #b45309); 
-      color: #ffffff;
-      box-shadow: 0 0 10px rgba(249, 115, 22, 0.4);
+      background: linear-gradient(135deg, #f59e0b, #d97706); 
+      box-shadow: 0 3px 8px rgba(245, 158, 11, 0.3);
     }
 
     .stage-tabs {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 6px;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
     @media (max-width: 480px) {
       .stage-tabs { grid-template-columns: repeat(3, 1fr); }
     }
     .stage-btn {
       padding: 8px 4px;
-      border: 1.5px solid var(--border);
-      border-radius: 10px;
-      background: #3b1e54;
+      border: 2px solid #ffccd5;
+      border-radius: 12px;
+      background: #fff0f3;
       font-size: 0.72rem;
       font-weight: bold;
       color: var(--text-muted);
@@ -104,204 +103,198 @@
       line-height: 1.25;
       transition: all 0.2s ease;
     }
+    .stage-btn:hover { background: #ffe5ec; }
     .stage-btn.active {
-      background: linear-gradient(135deg, #d946ef, #9333ea);
-      color: #ffffff;
-      border-color: #f472b6;
-      box-shadow: 0 2px 10px rgba(217, 70, 239, 0.5);
+      background: #ff4d6d;
+      color: white;
+      border-color: #ff4d6d;
+      box-shadow: 0 3px 10px rgba(255, 77, 109, 0.35);
+      transform: translateY(-1px);
     }
 
     .quest-progress {
       margin-bottom: 16px;
       padding: 10px 14px;
-      background: #1f0f2d;
-      border: 1px solid var(--border);
-      border-radius: 12px;
+      background: #fff0f3;
+      border: 2px dashed #ffccd5;
+      border-radius: 14px;
     }
     .progress-track {
-      height: 10px;
+      height: 12px;
       width: 100%;
-      background: #3b1e54;
+      background: #ffd8e4;
       border-radius: 999px;
       overflow: hidden;
       margin-top: 6px;
-      border: 1px solid rgba(255,255,255,0.1);
     }
     .progress-fill {
       width: 0%;
       height: 100%;
-      background: linear-gradient(90deg, #ec4899, #a855f7, #f97316);
-      transition: width 0.4s ease;
-      box-shadow: 0 0 8px rgba(236, 72, 153, 0.6);
+      background: linear-gradient(90deg, #ff9a9e, #fecfef, #a1c4fd);
+      transition: width 0.3s ease;
     }
 
     .card {
-      background: #231233;
-      border: 2px solid var(--border);
-      border-radius: 14px;
-      padding: 16px;
-      margin-bottom: 14px;
-      box-shadow: inset 0 0 10px rgba(0,0,0,0.4);
+      background: #fffaf0;
+      border: 2px solid #fed7aa;
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 8px rgba(251, 146, 60, 0.1);
     }
     .question-label {
       display: inline-block;
-      background: linear-gradient(135deg, #ec4899, #7c3aed);
+      background: #ff70a6;
       color: white;
-      padding: 3px 10px;
-      border-radius: 6px;
-      font-size: 0.72rem;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 0.75rem;
       font-weight: bold;
       margin-bottom: 8px;
-      letter-spacing: 0.05em;
     }
-    .story-text { margin: 0; font-size: 0.95rem; line-height: 1.65; color: #fdf2f8; }
+    .story-text { margin: 0; font-size: 0.98rem; line-height: 1.7; color: #4a2810; }
 
     .split-container {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
     @media(max-width: 560px) { .split-container { grid-template-columns: 1fr; } }
     .side-column {
-      padding: 12px;
-      background: #28143a;
-      border: 2px dashed var(--debit-border);
-      border-radius: 12px;
+      padding: 14px;
+      background: #f0f9ff;
+      border: 2px solid var(--debit-border);
+      border-radius: 14px;
     }
-    .side-column.credit { border-color: var(--credit-border); }
+    .side-column.credit { 
+      background: #fff7ed;
+      border-color: var(--credit-border); 
+    }
     .side-title { 
       text-align: center; 
-      margin-bottom: 8px; 
-      font-weight: bold; 
-      font-size: 0.85rem; 
-      color: #fbcfe8;
+      margin-bottom: 10px; 
+      font-weight: 800; 
+      font-size: 0.88rem; 
+      color: var(--text-main);
     }
     .entry-row { display: flex; gap: 6px; margin-bottom: 8px; }
     .entry-row input {
-      padding: 8px;
-      border: 1.5px solid var(--border);
-      border-radius: 8px;
-      font-size: 0.9rem;
-      background: #190924;
-      color: #fdf2f8;
+      padding: 8px 10px;
+      border: 2px solid #e2e8f0;
+      border-radius: 10px;
+      font-size: 0.92rem;
+      background: #ffffff;
+      color: var(--text-main);
       width: 100%;
-      outline: none;
     }
     .entry-row input[type="text"] { flex: 1.3; }
     .entry-row input[type="number"] { flex: 1; }
-    .entry-row input:focus { 
-      border-color: var(--primary); 
-      box-shadow: 0 0 8px rgba(217, 70, 239, 0.4);
-    }
+    .entry-row input:focus { outline: none; border-color: var(--primary); }
     .btn-remove {
-      background: #501328;
-      border: 1px solid #9f1239;
+      background: #fee2e2;
+      border: 1px solid #fca5a5;
       border-radius: 8px;
-      color: #fda4af;
+      color: #ef4444;
       cursor: pointer;
       font-weight: bold;
-      transition: background 0.2s;
+      padding: 0 10px;
     }
-    .btn-remove:hover { background: #881337; }
     .btn-add {
       width: 100%;
       padding: 8px;
-      background: #3b1a52;
-      border: 1.5px dashed var(--border);
-      color: #e9d5ff;
-      border-radius: 8px;
-      font-size: 0.8rem;
+      background: #ffffff;
+      border: 2px dashed #cbd5e1;
+      color: var(--text-muted);
+      border-radius: 10px;
+      font-size: 0.82rem;
       cursor: pointer;
       font-weight: bold;
       transition: all 0.2s;
     }
-    .btn-add:hover { background: #58247a; color: #ffffff; }
-    
+    .btn-add:hover { background: #fdf4ff; border-color: var(--primary); color: var(--primary); }
+
     .btn-submit {
       width: 100%;
-      padding: 14px;
-      background: linear-gradient(135deg, #d946ef, #9333ea);
+      padding: 15px;
+      background: linear-gradient(135deg, #ff5e97, #ff2a75);
       color: white;
       border: none;
-      border-radius: 12px;
+      border-radius: 14px;
       font-size: 1.05rem;
       font-weight: 800;
       cursor: pointer;
-      box-shadow: 0 4px 15px rgba(217, 70, 239, 0.4);
+      box-shadow: 0 4px 14px rgba(255, 94, 151, 0.4);
       transition: all 0.2s ease;
       letter-spacing: 0.05em;
     }
     .btn-submit:hover { 
-      background: linear-gradient(135deg, #c026d3, #7e22ce);
-      transform: translateY(-1px);
-      box-shadow: 0 6px 18px rgba(217, 70, 239, 0.6);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(255, 94, 151, 0.5);
     }
 
     .result-box {
       display: none;
       margin-top: 14px;
       padding: 14px;
-      border-radius: 10px;
-      font-size: 0.9rem;
-      line-height: 1.6;
+      border-radius: 12px;
+      font-size: 0.92rem;
+      line-height: 1.65;
     }
     .result-box.correct { 
       background: var(--correct-bg); 
-      border: 2px solid #ec4899; 
+      border: 2px solid #facc15; 
       color: var(--correct-text); 
-      box-shadow: 0 0 12px rgba(236, 72, 153, 0.3);
     }
     .result-box.wrong { 
       background: var(--wrong-bg); 
-      border: 2px solid #ea580c; 
+      border: 2px solid #f87171; 
       color: var(--wrong-text); 
-      box-shadow: 0 0 12px rgba(234, 88, 12, 0.3);
     }
     
     .nav-buttons { display: flex; gap: 10px; margin-top: 14px; }
     .nav-btn {
       flex: 1;
-      padding: 10px;
-      background: #3b1e54;
-      color: #fce7f3;
-      border: 1px solid var(--border);
-      border-radius: 8px;
+      padding: 11px;
+      background: #f1f5f9;
+      color: var(--text-main);
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
       font-weight: bold;
       cursor: pointer;
+      transition: all 0.15s;
     }
-    .nav-btn:hover { background: #532b77; }
+    .nav-btn:hover { background: #e2e8f0; }
 
     .clear-card { display: none; text-align: center; padding: 24px 16px; }
     .btn-review, .btn-restart {
       width: 100%;
-      padding: 12px;
+      padding: 13px;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       font-weight: bold;
       cursor: pointer;
       margin-bottom: 8px;
     }
-    .btn-review { background: #ea580c; color: white; }
-    .btn-restart { background: #581c87; color: white; }
+    .btn-review { background: #f59e0b; color: white; }
+    .btn-restart { background: #94a3b8; color: white; }
 
     details {
-      margin-top: 20px;
-      border-top: 2px dashed var(--border);
+      margin-top: 22px;
+      border-top: 2px dashed #fed7aa;
       padding-top: 14px;
     }
-    summary { cursor: pointer; font-size: 0.8rem; color: var(--text-muted); font-weight: bold; }
+    summary { cursor: pointer; font-size: 0.82rem; color: var(--text-muted); font-weight: bold; }
     textarea {
       width: 100%;
       height: 90px;
       margin-top: 10px;
       padding: 10px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
       font-family: monospace;
-      font-size: 0.8rem;
-      background: #190924;
-      color: #fdf2f8;
+      font-size: 0.82rem;
+      background: #fff;
     }
     .load-btn {
       width: 100%;
@@ -310,7 +303,7 @@
       background: var(--primary);
       color: white;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       font-weight: bold;
       cursor: pointer;
     }
@@ -328,10 +321,10 @@
       animation: dmgShake 0.45s cubic-bezier(.36,.07,.19,.97) both;
     }
     @keyframes dmgShake {
-      10%, 90% { transform: translate3d(-4px, 0, 0); }
-      20%, 80% { transform: translate3d(6px, 0, 0); }
-      30%, 50%, 70% { transform: translate3d(-8px, 0, 0); }
-      40%, 60% { transform: translate3d(8px, 0, 0); }
+      10%, 90% { transform: translate3d(-3px, 0, 0); }
+      20%, 80% { transform: translate3d(5px, 0, 0); }
+      30%, 50%, 70% { transform: translate3d(-7px, 0, 0); }
+      40%, 60% { transform: translate3d(7px, 0, 0); }
     }
 
     .rising-item {
@@ -346,9 +339,9 @@
     @keyframes riseMagic {
       0% { transform: translateY(0) scale(0.4) rotate(0deg); opacity: 0; }
       15% { opacity: 0.95; }
-      50% { transform: translateY(-50vh) translateX(var(--drift, 25px)) scale(1.2) rotate(180deg); opacity: 0.9; }
+      50% { transform: translateY(-50vh) translateX(var(--drift, 20px)) scale(1.1) rotate(180deg); opacity: 0.9; }
       85% { opacity: 0.7; }
-      100% { transform: translateY(-110vh) translateX(calc(var(--drift, 25px) * -1)) scale(1.4) rotate(360deg); opacity: 0; }
+      100% { transform: translateY(-110vh) translateX(calc(var(--drift, 20px) * -1)) scale(1.3) rotate(360deg); opacity: 0; }
     }
   </style>
 </head>
@@ -357,26 +350,26 @@
 <div class="container" id="mainContainer">
   <div class="header">
     <div class="logo-area">
-      <div class="logo-icon" id="app-logo">🍭</div>
+      <div class="logo-icon" id="app-logo">🧁</div>
       <div>
-        <h1 class="logo-title" id="app-title">お菓子の国とロバの呪い</h1>
-        <div style="font-size:0.7rem; color:var(--text-muted);" id="sub-title">〜 7日目の日曜日に響くヒヒーン 〜</div>
+        <h1 class="logo-title" id="app-title">おかしの国と日曜日ランド</h1>
+        <div style="font-size:0.75rem; color:var(--text-muted);" id="sub-title">〜 毎日あそび放題のスイーツ王国 〜</div>
       </div>
     </div>
-    <span class="status-badge" id="status-tag">宴の最中</span>
+    <span class="status-badge" id="status-tag">たのしくあそび中♪</span>
   </div>
 
   <div class="stage-tabs">
-    <button type="button" class="stage-btn active" id="tab-0" onclick="switchStage(0)">1日目: 砂糖</button>
-    <button type="button" class="stage-btn" id="tab-1" onclick="switchStage(1)">2日目: 蜜飴</button>
-    <button type="button" class="stage-btn" id="tab-2" onclick="switchStage(2)">3日目: 陶酔</button>
-    <button type="button" class="stage-btn" id="tab-3" onclick="switchStage(3)">4日目: 異変</button>
-    <button type="button" class="stage-btn" id="tab-4" onclick="switchStage(4)">5日目: 蹄音</button>
+    <button type="button" class="stage-btn active" id="tab-0" onclick="switchStage(0)">1日目: キャンディ</button>
+    <button type="button" class="stage-btn" id="tab-1" onclick="switchStage(1)">2日目: チョコレート</button>
+    <button type="button" class="stage-btn" id="tab-2" onclick="switchStage(2)">3日目: ビスケット</button>
+    <button type="button" class="stage-btn" id="tab-3" onclick="switchStage(3)">4日目: 違和感</button>
+    <button type="button" class="stage-btn" id="tab-4" onclick="switchStage(4)">5日目: ひづめ</button>
   </div>
 
   <div class="quest-progress">
     <div style="display:flex; justify-content:space-between; font-size:0.75rem; font-weight:bold;">
-      <span id="stage-badge-text">Stage 1</span>
+      <span id="stage-badge-text">1日目：あまいお菓子の仕入れ</span>
       <span id="progress-text">第 1 問</span>
     </div>
     <div class="progress-track">
@@ -386,75 +379,75 @@
 
   <div id="quiz-area">
     <div class="card">
-      <div class="question-label" id="q-number">TREAT // 01</div>
-      <p class="story-text" id="story-display">お菓子を計量中...</p>
+      <div class="question-label" id="q-number">SUGAR // 01</div>
+      <p class="story-text" id="story-display">読み込み中...</p>
     </div>
 
     <div class="split-container">
       <div class="side-column">
         <div class="side-title">借方 (Debit) 🍬</div>
         <div id="debit-rows"></div>
-        <button type="button" class="btn-add" onclick="addRow('debit')">＋ 菓子を積む（行追加）</button>
+        <button type="button" class="btn-add" onclick="addRow('debit')">＋ ケーキをのせる（行追加）</button>
       </div>
       <div class="side-column credit">
-        <div class="side-title">貸方 (Credit) 🫏</div>
+        <div class="side-title">貸方 (Credit) 🍩</div>
         <div id="credit-rows"></div>
-        <button type="button" class="btn-add" onclick="addRow('credit')">＋ 代償を払う（行追加）</button>
+        <button type="button" class="btn-add" onclick="addRow('credit')">＋ クッキーをならべる（行追加）</button>
       </div>
     </div>
 
-    <button type="button" class="btn-submit" id="submit-btn" onclick="checkAnswer()">欲望の対価を差し出す（判定）</button>
+    <button type="button" class="btn-submit" id="submit-btn" onclick="checkAnswer()">おかしを食べる！（仕訳判定）</button>
     <div id="result-display" class="result-box"></div>
 
     <div class="nav-buttons">
-      <button type="button" class="nav-btn" onclick="prevQuestion()">◀ 逃げ戻る</button>
-      <button type="button" class="nav-btn" id="next-btn" onclick="nextQuestion()">奥へ進む ▶</button>
+      <button type="button" class="nav-btn" onclick="prevQuestion()">◀ もどる</button>
+      <button type="button" class="nav-btn" id="next-btn" onclick="nextQuestion()">つぎのお菓子へ ▶</button>
     </div>
   </div>
 
   <div id="clear-area" class="clear-card">
-    <h2 id="clear-heading">甘い宴の幕引き</h2>
+    <h2 id="clear-heading" style="color:var(--primary);">ステージクリア！</h2>
     <div id="complete-badge-area"></div>
     <p id="score-text" style="line-height:1.6; color:var(--text-muted);"></p>
     <div id="review-btn-area"></div>
-    <button type="button" class="btn-restart" onclick="startFreshStage()">最初の日曜日からやり直す</button>
+    <button type="button" class="btn-restart" onclick="startFreshStage()">この日曜日をもう一度あそぶ</button>
   </div>
 
   <details>
-    <summary>📥 追加の甘い契約書を取り込む (JSON)</summary>
+    <summary>📥 おかしのレシピを追加する (JSON)</summary>
     <textarea id="json-input" placeholder="AIで作成したJSON配列をここに貼り付けると、現在の日曜日を上書きできます"></textarea>
-    <button type="button" class="load-btn" onclick="loadCustomData()">新たな遊戯を取り込む</button>
+    <button type="button" class="load-btn" onclick="loadCustomData()">レシピを更新</button>
   </details>
 
-  <span class="reset-link" onclick="forceReset()">※ すべての記憶と呪いをリセットする</span>
+  <span class="reset-link" onclick="forceReset()">※ おかしの国をぜんぶ初期化する</span>
 </div>
 <script>
 // ==================================================
-// ★ 演出絵文字設定エリア（甘いお菓子と徐々に忍び寄るロバの兆候）
+// ★ 演出絵文字設定エリア（見た目はかわいいスイーツたち）
 // ==================================================
-const RISING_EFFECT_SYMBOLS = ["🍬", "🍭", "🧁", "🍩", "🎪", "🎡", "🫏", "🎠", "🥕", "✨", "🍫"];
+const RISING_EFFECT_SYMBOLS = ["🍬", "🍭", "🍰", "🍩", "🧁", "🍓", "🍫", "🍪", "🥞", "✨"];
 
 // ==================================================
-// 内蔵初期問題データ（基礎問題 5ステージ構成）
+// 内蔵初期問題データ（お菓子の国×徐々にロバになっていくストーリー）
 // ==================================================
 const STAGES = [
   {
-    title: "1日目：果てしない砂糖菓子と現金の基礎",
+    title: "1日目：キャンディの海と日曜日",
     questions: [
       {
-        "story": "商品 100,000円を仕入れ、代金は現金で支払った。（仕入）（現金）",
+        "story": "「ここは一週間ずっと日曜日！勉強なんてしなくていいんだよ！」色鮮やかなドロップキャンディ 100,000円分を仕入れ、ポケットの小遣い（現金）で支払った。（仕入）（現金）",
         "debit": [{ "account": "仕入", "amount": 100000 }],
         "credit": [{ "account": "現金", "amount": 100000 }],
         "explanation": "費用（Expense）である「仕入」を借方に計上し、資産（Asset）である「現金」の減少を貸方に記入します。"
       },
       {
-        "story": "商品 150,000円を売り上げ、代金は掛けとした。（売掛金）（売上）",
+        "story": "わたあめの観覧車に乗っていた子どもたちにマシュマロ 150,000円分を売り上げ、代金はツケ（掛け）とした。「いくらでも食べていいよ！」（売掛金）（売上）",
         "debit": [{ "account": "売掛金", "amount": 150000 }],
         "credit": [{ "account": "売上", "amount": 150000 }],
         "explanation": "資産（Asset）である債権「売掛金」を借方に計上し、収益（Revenue）である「売上」を貸方に記入します。"
       },
       {
-        "story": "売掛金 150,000円が普通預金口座に振り込まれた。（普通預金）（売掛金）",
+        "story": "ツケにしていた売掛金 150,000円が、遊園地のゴールド普通預金口座に振り込まれた。毎日が日曜日、ずっと遊んでいられる！（普通預金）（売掛金）",
         "debit": [{ "account": "普通預金", "amount": 150000 }],
         "credit": [{ "account": "売掛金", "amount": 150000 }],
         "explanation": "資産（Asset）である「普通預金」の増加を借方に記入し、資産「売掛金」の消滅を貸方に記入します。"
@@ -462,16 +455,16 @@ const STAGES = [
     ]
   },
   {
-    title: "2日目：蜜飴の城と付随費用",
+    title: "2日目：チョコレートの噴水と備品",
     questions: [
       {
-        "story": "事務用パソコン（備品）200,000円を購入し、設定費用 20,000円とともに代金は普通預金から支払った。（備品）（普通預金）",
+        "story": "ゲームコーナーで遊び疲れたので、豪華なマッサージチェア（備品）200,000円を購入。設置費用 20,000円とともに代金は普通預金から支払った。（備品）（普通預金）",
         "debit": [{ "account": "備品", "amount": 220000 }],
         "credit": [{ "account": "普通預金", "amount": 220000 }],
         "explanation": "付随費用を取得原価に含めるため、資産（Asset）の「備品」220,000円を借方に計上します。"
       },
       {
-        "story": "業務用の営業車両（車両運搬具）800,000円を購入し、納車費用 30,000円を加えた代金を当座預金口座から小切手を振り出して支払った。（車両運搬具）（当座預金）",
+        "story": "お菓子の国の中を暴走して遊ぶためのゴーカート（車両運搬具）800,000円を購入し、改造費 30,000円とともに当座預金口座から小切手を振り出して支払った。（車両運搬具）（当座預金）",
         "debit": [{ "account": "車両運搬具", "amount": 830000 }],
         "credit": [{ "account": "当座預金", "amount": 830000 }],
         "explanation": "付随費用を含めた「車両運搬具」830,000円を借方に計上し、小切手振出による「当座預金」の減少を貸方に記入します。"
@@ -479,33 +472,33 @@ const STAGES = [
     ]
   },
   {
-    title: "3日目：陶酔の手付金と複合仕訳",
+    title: "3日目：ビスケットの壁と頭痛",
     questions: [
       {
-        "story": "商品 300,000円を仕入れ、内金として支払っていた手付金 50,000円を充当し、残額は掛けとした。（仕入）（前払金）（買掛金）",
+        "story": "ビスケットの壁をかじりながら、新しいおもちゃ 300,000円を仕入れた。以前払っていた手付金 50,000円を充当し、残額は掛けとした。…なんだか頭がズキズキする。（仕入）（前払金）（買掛金）",
         "debit": [{ "account": "仕入", "amount": 300000 }],
         "credit": [{ "account": "前払金", "amount": 50000 }, { "account": "買掛金", "amount": 250000 }],
-        "explanation": "費用（Expense）の「仕入」300,000円を借方に記入し、資産「前払金」50,000円と負債（Liability）「買掛金」250,000円を貸方に記入する複合仕訳です。"
+        "explanation": "費用（Expense）の「仕入」300,000円を借方に記入し、資産「前払金」50,000円と負債（Liability）「買掛金」250,000円を貸方に記入します。"
       },
       {
-        "story": "商品 400,000円を売り上げ、代金のうち 150,000円は現金で受け取り、残額は掛けとした。（現金）（売掛金）（売上）",
+        "story": "甘いシロップジュース 400,000円を売り上げ、代金のうち 150,000円は現金で受け取り、残額は掛けとした。鏡を見ると、耳の先が少し尖って伸びているような…？（現金）（売掛金）（売上）",
         "debit": [{ "account": "現金", "amount": 150000 }, { "account": "売掛金", "amount": 250000 }],
         "credit": [{ "account": "売上", "amount": 400000 }],
-        "explanation": "収益（Revenue）の「売上」400,000円を貸方に計上し、資産（Asset）の「現金」150,000円と「売掛金」250,000円を借方に記入する複合仕訳です。"
+        "explanation": "収益（Revenue）の「売上」400,000円を貸方に計上し、資産（Asset）の「現金」150,000円と「売掛金」250,000円を借方に記入します。"
       }
     ]
   },
   {
-    title: "4日目：伸びる耳と手形の罠",
+    title: "4日目：伸びた灰色の耳と違和感",
     questions: [
       {
-        "story": "銀行から 500,000円を借り入れ、当座預金口座に入金された。（当座預金）（借入金）",
+        "story": "「ヒ、ヒヒ…？」うまく声が出ない。遊園地の支配人から 500,000円を借り入れ、当座預金に入金された。手足に灰色の毛が生えてきたけれど、気のせいだよね？（当座預金）（借入金）",
         "debit": [{ "account": "当座預金", "amount": 500000 }],
         "credit": [{ "account": "借入金", "amount": 500000 }],
         "explanation": "資産（Asset）の「当座預金」増加を借方に記入し、負債（Liability）の「借入金」を貸方に計上します。"
       },
       {
-        "story": "売掛金の回収として得意先振出の約束手形 200,000円を受け取った。（受取手形）（売掛金）",
+        "story": "ツケにしていた売掛金 200,000円の回収として、友達が差し出した約束手形を受け取った。その友達の手には、もう指がなく、硬い蹄（ひづめ）になっていた。（受取手形）（売掛金）",
         "debit": [{ "account": "受取手形", "amount": 200000 }],
         "credit": [{ "account": "売掛金", "amount": 200000 }],
         "explanation": "手形債権である資産（Asset）の「受取手形」を借方に計上し、資産「売掛金」の消滅を貸方に記入します。"
@@ -516,13 +509,13 @@ const STAGES = [
     title: "5日目：固まる蹄と最後の決算",
     questions: [
       {
-        "story": "当期の建物に対する減価償却費 60,000円を直接法で計上した。（減価償却費）（建物）",
+        "story": "カツーン、カツーン。歩くたびに蹄の乾いた音が響く。お菓子の城（建物）に対する減価償却費 60,000円を直接法で計上した。もう言葉は喋れず、鳴き声しか出ない。（減価償却費）（建物）",
         "debit": [{ "account": "減価償却費", "amount": 60000 }],
         "credit": [{ "account": "建物", "amount": 60000 }],
         "explanation": "費用（Expense）である「減価償却費」を借方に計上し、資産「建物」を直接減額します。"
       },
       {
-        "story": "期末の売掛金残高に対して 10,000円の貸倒引当金を計上した。（貸倒引当金繰入）（貸倒引当金）",
+        "story": "連れて行かれた鉱山で荷物を背負わされながら、売掛金に対する貸倒引当金 10,000円を計上した。毎日遊んでいられる夢の国なんて、最初から無かったんだ。（貸倒引当金繰入）（貸倒引当金）",
         "debit": [{ "account": "貸倒引当金繰入", "amount": 10000 }],
         "credit": [{ "account": "貸倒引当金", "amount": 10000 }],
         "explanation": "費用（Expense）の「貸倒引当金繰入」を借方に記入し、評価性引当金の「貸倒引当金」を貸方に計上します。"
@@ -623,14 +616,14 @@ function loadQuestion(index) {
 
   const tag = document.getElementById("status-tag");
   if (isReviewMode) {
-    tag.textContent = "記憶の呼び戻し";
+    tag.textContent = "おもいだす時間";
     tag.className = "status-badge review";
   } else {
-    tag.textContent = "宴の最中";
+    tag.textContent = "たのしくあそび中♪";
     tag.className = "status-badge";
   }
 
-  const prefix = isReviewMode ? "解呪" : `Day ${currentStageIndex + 1}`;
+  const prefix = isReviewMode ? "ふくしゅう" : `Day ${currentStageIndex + 1}`;
   document.getElementById("q-number").textContent = `${prefix} // ${index + 1} / ${currentQuestions.length}`;
   document.getElementById("story-display").textContent = currentQuestions[index].story;
 
@@ -645,7 +638,7 @@ function loadQuestion(index) {
   document.getElementById("submit-btn").style.display = "block";
 
   const nextBtn = document.getElementById("next-btn");
-  nextBtn.textContent = (currentIndex === currentQuestions.length - 1) ? "契約の結末へ" : "奥へ進む ▶";
+  nextBtn.textContent = (currentIndex === currentQuestions.length - 1) ? "結果をみる" : "つぎのお菓子へ ▶";
 
   const percent = Math.round(((index + 1) / currentQuestions.length) * 100);
   document.getElementById("progress-fill").style.width = percent + "%";
@@ -723,7 +716,7 @@ function checkAnswer() {
   if (isOk) {
     spawnRisingMagic();
     res.className = "result-box correct";
-    res.innerHTML = `<strong>甘い誘惑を見破った！</strong><br>${q.explanation}`;
+    res.innerHTML = `<strong>おいしく正解！</strong><br>${q.explanation}`;
     if (!answeredSet.has(currentIndex)) {
       correctCount++;
       if (isReviewMode) wrongList = wrongList.filter(item => item.story !== q.story);
@@ -734,7 +727,7 @@ function checkAnswer() {
     res.className = "result-box wrong";
     const dStr = cDebit.map(d => `(${d.account}: ${d.amount.toLocaleString()}円)`).join(" ");
     const cStr = cCredit.map(c => `(${c.account}: ${c.amount.toLocaleString()}円)`).join(" ");
-    res.innerHTML = `<strong>耳が長くなってきた…（ヒヒーン！）</strong><br>正解 借方: ${dStr}<br>正解 貸方: ${cStr}<br><br>${q.explanation}`;
+    res.innerHTML = `<strong>あれ…？ちがうみたい（ヒヒーン…！）</strong><br>せいかい 借方: ${dStr}<br>せいかい 貸方: ${cStr}<br><br>${q.explanation}`;
     if (!answeredSet.has(currentIndex)) {
       if (!wrongList.some(item => item.story === q.story)) wrongList.push(q);
       answeredSet.add(currentIndex);
@@ -763,13 +756,13 @@ function showClearScreen() {
 
   if (wrongList.length === 0) {
     spawnRisingMagic();
-    badgeArea.innerHTML = `<div style="display:inline-block; padding:6px 14px; background:#4a044e; border:2px solid #ec4899; border-radius:8px; font-weight:bold; color:#fbcfe8; margin-bottom:12px; box-shadow: 0 0 10px rgba(236, 72, 153, 0.5);">人型のまま生還！全問正解！</div>`;
-    scoreText.innerHTML = `お見事！お菓子の罠に惑わされず、人間の姿を保ちました。 (${total}/${total})`;
+    badgeArea.innerHTML = `<div style="display:inline-block; padding:8px 16px; background:#fef08a; border:2px solid #facc15; border-radius:12px; font-weight:bold; color:#854d0e; margin-bottom:12px;">たいへんよくできました！</div>`;
+    scoreText.innerHTML = `ぜんぶせいかい！お菓子をいっぱい食べて満足したね…？ (${total}/${total})`;
   } else {
-    scoreText.innerHTML = `${total} 問中 ${correctCount} 問 見破り成功。<br>蹄の音が聞こえる問題が ${wrongList.length} 問 あります。`;
+    scoreText.innerHTML = `${total} 問中 ${correctCount} 問 せいかい！<br>まちがえた問題が ${wrongList.length} 問 あります。耳がむずむずする…？`;
     const btn = document.createElement("button");
     btn.className = "btn-review";
-    btn.textContent = `ロバ化を解くため復習する (${wrongList.length}問)`;
+    btn.textContent = `まちがえた問題をやりなおす (${wrongList.length}問)`;
     btn.onclick = () => {
       isReviewMode = true;
       currentQuestions = [...wrongList];
@@ -789,7 +782,7 @@ function startFreshStage() {
 }
 
 function forceReset() {
-  if (confirm("入力したカスタムデータを初期化し、初期状態に戻しますか？")) {
+  if (confirm("入力したカスタムデータを初期化し、おかしの国を最初の状態にもどしますか？")) {
     localStorage.clear();
     location.reload();
   }
@@ -798,7 +791,7 @@ function forceReset() {
 function loadCustomData() {
   const input = document.getElementById("json-input").value.trim();
   if (!input) {
-    alert("契約書（JSONデータ）を入力してください。");
+    alert("レシピ（JSONデータ）を入力してください。");
     return;
   }
   try {
@@ -808,7 +801,7 @@ function loadCustomData() {
     STAGES[currentStageIndex].questions = data;
     localStorage.setItem(`boki_template_st${currentStageIndex}_data`, JSON.stringify(data));
     loadStage(currentStageIndex);
-    alert(`第 ${currentStageIndex + 1} の日曜日（全${data.length}問）を取り込みました！`);
+    alert(`1日目（全${data.length}問）のレシピを更新しました！`);
   } catch (e) {
     alert("⚠️ JSONの形式を確認してください。正しく貼り付けられているかチェックをお願いします。");
   }
