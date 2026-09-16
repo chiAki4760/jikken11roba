@@ -643,6 +643,9 @@ function loadQuestion(index) {
   const percent = Math.round(((index + 1) / currentQuestions.length) * 100);
   document.getElementById("progress-fill").style.width = percent + "%";
   document.getElementById("progress-text").textContent = `${index + 1} / ${currentQuestions.length} 問 (${percent}%)`;
+  // 借方の先頭科目入力欄に自動でカーソルを合わせる
+  const firstDebitInput = document.querySelector("#debit-rows input[type='text']");
+  if (firstDebitInput) firstDebitInput.focus();
 }
 
 function getEntries(side) {
@@ -806,7 +809,31 @@ function loadCustomData() {
     alert("⚠️ JSONの形式を確認してください。正しく貼り付けられているかチェックをお願いします。");
   }
 }
+// ==================================================
+// キーボードショートカット設定
+// ==================================================
+window.addEventListener("keydown", (e) => {
+  // レシピ入力エリア（textarea）編集中は何もしない
+  if (e.target.tagName === "TEXTAREA") return;
 
+  if (e.key === "ArrowRight") {
+    const quizArea = document.getElementById("quiz-area");
+    // 出題画面が表示されている時のみ動作
+    if (quizArea && quizArea.style.display !== "none") {
+      const res = document.getElementById("result-display");
+      
+      // 入力枠にカーソルがある場合：文字移動を邪魔しないよう、判定結果表示後のみ右矢印で次へ
+      // 入力枠の外（ボタンなど）にある場合：そのまま右矢印で次へ
+      const isTyping = e.target.tagName === "INPUT";
+      if (!isTyping || (res && res.style.display === "block")) {
+        e.preventDefault();
+        nextQuestion();
+      }
+    }
+  }
+});
+
+  
 window.addEventListener("DOMContentLoaded", init);
 </script>
 </body>
