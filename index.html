@@ -346,7 +346,6 @@
   </style>
 </head>
 <body>
-
 <div class="container" id="mainContainer">
   <div class="header">
     <div class="logo-area">
@@ -360,16 +359,16 @@
   </div>
 
   <div class="stage-tabs">
-    <button type="button" class="stage-btn active" id="tab-0" onclick="switchStage(0)">1日目: キャンディ</button>
-    <button type="button" class="stage-btn" id="tab-1" onclick="switchStage(1)">2日目: チョコレート</button>
-    <button type="button" class="stage-btn" id="tab-2" onclick="switchStage(2)">3日目: ビスケット</button>
-    <button type="button" class="stage-btn" id="tab-3" onclick="switchStage(3)">4日目: 違和感</button>
-    <button type="button" class="stage-btn" id="tab-4" onclick="switchStage(4)">5日目: ひづめ</button>
+    <button type="button" class="stage-btn active" id="tab-0" onclick="switchStage(0)">1日目: おもちゃの国</button>
+    <button type="button" class="stage-btn" id="tab-1" onclick="switchStage(1)">2日目: ロバへの変異</button>
+    <button type="button" class="stage-btn" id="tab-2" onclick="switchStage(2)">3日目: サーカスと売却</button>
+    <button type="button" class="stage-btn" id="tab-3" onclick="switchStage(3)">4日目: 海とフカの胃袋</button>
+    <button type="button" class="stage-btn" id="tab-4" onclick="switchStage(4)">5日目: 労働と本当の人間</button>
   </div>
 
   <div class="quest-progress">
     <div style="display:flex; justify-content:space-between; font-size:0.75rem; font-weight:bold;">
-      <span id="stage-badge-text">1日目：あまいお菓子の仕入れ</span>
+      <span id="stage-badge-text">1日目：甘い誘惑とおもちゃの国</span>
       <span id="progress-text">第 1 問</span>
     </div>
     <div class="progress-track">
@@ -428,11 +427,11 @@
 const RISING_EFFECT_SYMBOLS = ["🍬", "🍭", "🍰", "🍩", "🧁", "🍓", "🍫", "🍪", "🥞", "✨"];
 
 // ==================================================
-// 内蔵初期問題データ（お菓子の国×徐々にロバになっていくストーリー）
+// 内蔵初期問題データ（ピノッキオの冒険：おもちゃの国〜人間の子供へ）
 // ==================================================
 const STAGES = [
   {
-    title: "1日目：キャンディの海と日曜日",
+    title: "1日目：甘い誘惑とおもちゃの国",
     questions: [
       {
         "story": "「ここは一週間ずっと日曜日！勉強なんてしなくていいんだよ！」色鮮やかなドロップキャンディ 100,000円分を仕入れ、ポケットの小遣い（現金）で支払った。（仕入）（現金）",
@@ -455,7 +454,7 @@ const STAGES = [
     ]
   },
   {
-    title: "2日目：チョコレートの噴水と備品",
+    title: "2日目：伸びる耳とロバへの変異",
     questions: [
       {
         "story": "ゲームコーナーで遊び疲れたので、豪華なマッサージチェア（備品）200,000円を購入。設置費用 20,000円とともに代金は普通預金から支払った。（備品）（普通預金）",
@@ -472,7 +471,7 @@ const STAGES = [
     ]
   },
   {
-    title: "3日目：ビスケットの壁と頭痛",
+    title: "3日目：過酷なサーカスと太鼓の皮",
     questions: [
       {
         "story": "ビスケットの壁をかじりながら、新しいおもちゃ 300,000円を仕入れた。以前払っていた手付金 50,000円を充当し、残額は掛けとした。…なんだか頭がズキズキする。（仕入）（前払金）（買掛金）",
@@ -489,7 +488,7 @@ const STAGES = [
     ]
   },
   {
-    title: "4日目：伸びた灰色の耳と違和感",
+    title: "4日目：暗い海とフカの胃袋からの脱出",
     questions: [
       {
         "story": "「ヒ、ヒヒ…？」うまく声が出ない。遊園地の支配人から 500,000円を借り入れ、当座預金に入金された。手足に灰色の毛が生えてきたけれど、気のせいだよね？（当座預金）（借入金）",
@@ -506,7 +505,7 @@ const STAGES = [
     ]
   },
   {
-    title: "5日目：固まる蹄と最後の決算",
+    title: "5日目：真面目な労働と本物の人間へ",
     questions: [
       {
         "story": "カツーン、カツーン。歩くたびに蹄の乾いた音が響く。お菓子の城（建物）に対する減価償却費 60,000円を直接法で計上した。もう言葉は喋れず、鳴き声しか出ない。（減価償却費）（建物）",
@@ -523,6 +522,7 @@ const STAGES = [
     ]
   }
 ];
+
 // ==================================================
 // アプリ共通ロジック
 // ==================================================
@@ -801,7 +801,7 @@ function loadCustomData() {
     STAGES[currentStageIndex].questions = data;
     localStorage.setItem(`boki_template_st${currentStageIndex}_data`, JSON.stringify(data));
     loadStage(currentStageIndex);
-    alert(`1日目（全${data.length}問）のレシピを更新しました！`);
+    alert(`${STAGES[currentStageIndex].title}（全${data.length}問）のレシピを更新しました！`);
   } catch (e) {
     alert("⚠️ JSONの形式を確認してください。正しく貼り付けられているかチェックをお願いします。");
   }
